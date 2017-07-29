@@ -1,6 +1,5 @@
 \documentclass[]{indojc}
-\usepackage[backend=biber, style=ieee, maxbibnames=99]{biblatex}
-\addbibresource{References.bib}
+
 \usepackage{times,amsmath}
 \usepackage{amssymb}
 \usepackage{graphicx}
@@ -8,6 +7,7 @@
 \usepackage{url}
 \usepackage{color}
 \usepackage{fixltx2e}
+\usepackage{cite}
 \usepackage[T1]{fontenc}
 \usepackage[font=small,labelfont=bf]{caption}
 \renewcommand{\refname}{Daftar Pustaka}
@@ -200,9 +200,12 @@ Selain menghasilkan waktu eksekusi yang lebih cepat, modifikasi terhadap algorit
 \end{figure}
 
 \section{Result and Conclusion}
-Monitoring aritmia jantung secara realtime menggunakan IoT sangat mungkin dilakukan, terlihat dari hasil akurasi deteksi yang mencapai 93.11\%. Masalah utama berada pada optimasi resource yang terlibat, sehingga memungkinkan semakin banyak sensor dan dashboard yang dapat terhubung. Dimulai dari pemilihan bahasa server, database, hingga penerapan algoritma. Dengan menerapkan optimasi pada algoritma pantomkins server dapat menangani hingga 1.4 kali banyak sensor (waktu eksekusi berkurang hingga 30\%). Penerapan algoritma yang lebih akurat dan lebih banyak kelas yang dapat dideteksi dapat menjadi penelitian lanjutan yang menarik. \cite{huo2007short}
+Monitoring aritmia jantung secara realtime menggunakan IoT sangat mungkin dilakukan, terlihat dari hasil akurasi deteksi yang mencapai 93.11\%. Masalah utama berada pada optimasi resource yang terlibat, sehingga memungkinkan semakin banyak sensor dan dashboard yang dapat terhubung. Dimulai dari pemilihan bahasa server, database, hingga penerapan algoritma. Dengan menerapkan optimasi pada algoritma pantomkins server dapat menangani hingga 1.4 kali banyak sensor (waktu eksekusi berkurang hingga 30\%). Penerapan algoritma yang lebih akurat dan lebih banyak kelas yang dapat dideteksi dapat menjadi penelitian lanjutan yang menarik.
 
-\printbibliography
+%Use following code if you use bibtex
+
+\bibliographystyle{plain}
+\bibliography{References}{}
 
 \end{document}
 
