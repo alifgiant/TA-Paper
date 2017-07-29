@@ -1,5 +1,6 @@
 \documentclass[]{indojc}
-
+\usepackage[backend=biber, style=ieee, maxbibnames=99]{biblatex}
+\addbibresource{References.bib}
 \usepackage{times,amsmath}
 \usepackage{amssymb}
 \usepackage{graphicx}
@@ -7,7 +8,6 @@
 \usepackage{url}
 \usepackage{color}
 \usepackage{fixltx2e}
-\usepackage{cite}
 \usepackage[T1]{fontenc}
 \usepackage[font=small,labelfont=bf]{caption}
 \renewcommand{\refname}{Daftar Pustaka}
@@ -36,7 +36,8 @@
 {Muhammad Alif Akbar{\small $~^{\#1}$}, \and Satria Mandala{\small $~^{*2}$}}%
 \vspace{1.6mm}\\
 \fontsize{10}{10}\selectfont\itshape
-$^{\#}$\,department of Informatics Engineering, School of Computing, Telkom University\\
+$^{\#\*}$\,Department of Informatics Engineering, \\
+School of Computing, Telkom University\\
 Bandung, Jawa Barat, Indonesia\\
 \fontsize{9}{9}\selectfont\upshape
 $^{1}$\, maakbar@student.telkomuniversity.ac.id\\
@@ -55,147 +56,153 @@ $^{2}$\, satriamandala@telkomuniversity.ac.id%
 \def\abstractname{Abstract}
 \def\keywordsname{Keywords}
 \begin{abstract}
-An abstract of no more than 200 words should state the purposes of the study, procedures, findings and conclusions. It should be written in Times New Roman with font size of 9. Abstract should be followed by four to eight key words to assist cross-indexing. The key words should be ordered alphabetically and separated by commas. For your paper to be published in the journal, you must use this document as both an instruction set and as a template into which you can type your own text.  If your paper does not conform to the required format, you will be asked to fix it. In the paper, authors are suggested to present their articles in the sections structure: Introduction - Previous Study/Literature Review - The Proposed Method/Algorithm/Procedure specifically designed (optional) - Research Method - Results and Discussion - Conclusion. Authors may present complex proofs of theorems or non-obvious proofs of correctness of algorithms after introduction section (obvious theorems and straightforward proofs of existing theorems are not needed).
+Monitoring jantung mendapatkan perhatian lebih belakangan ini. Hal ini terlihat dari bermunculannya produk \textit{wearable}, yang memungkinkan monitoring jantung dimana saja dan kapan saja. Penelitian untuk menerapkan konsep IoT pada produk \textit{wearable} tersebut juga mulai bermunculan. Namun, penelitian tersebut belum dapat memaksimalkan kemampuan yang ditawarkan oleh IoT. Penelitian yang ada hanya berfokus pada bagaimana hasil baca sensor dapat dipantau secara realtime oleh orang lain di tempat lain. Pada paper ini kami merancang sebuah arsitektur IoT yang menerapkan deteksi aritmia pada \textit{cloud}. Deteksi aritmia yang diterapkan merupakan usulan aturan klasifikasi oleh Tsipuras et al yang menggunakan fitur R pada ECG. Untuk mendeteksi fitur R, diterapkan modifikasi terhadap algoritma usulan Pan-Tompkins. Modifikasi yang dilakukan ditujukan untuk mengurangi waktu eksekusi yang diperlukan algoritma sehingga \textit{cloud} dapat melayani lebih banyak \textit{sensor}.  Sistem diuji menggunakan dataset MIT-BIH dan menghasilkan tingkat akurasi 93.11\% terhadap 3 kelas aritmia dengan rata-rata waktu eksekusi tiap sampel 0.00749 ms.
 \end{abstract}
 
 \begin{keywords}
-Indo-JC, journal, \LaTeX, template.
+IoT, heart monitoring, arrhyhtmia
 \end{keywords}
-$~$\\
-\def\abstractname{Abstrak}
-\def\keywordsname{Kata Kunci}
-\begin{abstract}
-Abstrak berisikan tidak lebih dari 200 kata yang meliputi tujuan dari penelitian, prosedur, temuan dan kesimpulan. Ukuran dan jenis huruf untuk abstak adalah Times New Roman dengan ukuran 9. Bagian abstrak ditutup dengan 4-9 kata kunci abstrak. Kata kunci ini berfungsi untuk membantu pengindexan. Kata kunci harus diurutkan secara alphabet dan dipisahkan dengan koma. Agar makalah Anda dapat dipublish di journal kami, Anda harus menggunakan dokumen ini baik sebagai himpunan petunjuk maupun sebagai template. Jika makalah Anda tidak sesuai dengan format yang diberikan, maka paper Anda akan dikembalikan agar dapat diperbaiki. Dalam makalah ini, penulis disarankan untuk menyajikan artikel dengan struktur sebagai berikut: Pendahuluan - Kajian Pustaka  - Metode Usulan/ Algoritma/ Prosedur yang didesain secara spesifik (pilihan) - Metodologi Penelitian - Hasil dan Pembahasan - Kesimpulan. Penulis dapat menyajikan bukti teorema yang kompleks atau bukti yang non-obvious dari algoritma setelah bagian pendahuluan (teorema yang sudah jelas mauun bukti langsung tidak perlu dicantumkan kembali).
-\end{abstract}
-
-\begin{keywords}
-Indo-JC, jurnal, \LaTeX, template.
-\end{keywords}
-
 
 \section{Introduction}
-\TSoCPARstart{T}{his} demo file is a template for Indonesian Journal on Computing (Indo-JC) produced under \LaTeX\ using indojc.cls. The template describes page style used in Indo-JC and sections that should be written in the manuscript. Authors who want to submit their manuscript to Indo-JC must follow this template. This is important to maintain the quality of the journal. Therefore, if one paper does not conform to the required template, the author will be asked to fix it.
+Monitoring jantung mendapatkan perhatian lebih belakangan ini. Hal ini terlihat dari bermunculannya produk \textit{wearable} yang memungkinkan monitoring jantung dimana saja dan kapan saja \cite{online:fitbit, online:samsung_gear, online:endo_holter}. Umumnya produk tersebut menggunakan \textit{electrocardiography} (ECG) ataupun \textit{photoplethysmography} (PPG) sebagai sensornya. Penggunaan PPG dapat ditemukan pada produk produk jam tangan pintar seperti FitBit dan Gear Watch yang menambahkan PPG di bagian belakang jamnya \cite{online:fitbit, online:samsung_gear}. Penggunaan ECG dapat ditemukan pada produk produk holter monitor \cite{online:endo_holter}. Sensor-sensor ini akan membaca sinyal jantung lalu menampilkan perkiraan jumlah detak jantung permenit (BPM) pada layar produk ataupun layar ponsel yang terhubung ke produk tersebut. Selain produk \textit{wearable} diatas, produk berupa software yang memanfaatkan kamera pada belakang ponsel juga banyak ditemukan pada online store seperti android play store \cite{playstore_heart}.
 
-\subsection{Content of Introduction Section}
-In introduction, the context of the study and state the precise objective should be explained. An Introduction should contain the following three parts: background, the problem, and proposed solution. In explaining the background, authors have to make clear what the context is. Ideally, authors should give an idea of the state-of-the art of the field the report is about. The problem also need to described clearly so that readers able to understand why they should proceed reading. Authors also need to describe the proposed solution so that readers able to point out what are the novel aspects of authors work. Authors should place the paper in proper context by citing relevant papers. 
+Beberapa penelitian telah dilakukan untuk menerapkan konsep IoT \cite{daniel_barataa, paola_pierleoni, vasu_jindal, mamidi}. Namun penelitian tersebut belum dapat memaksimalkan kemampuan yang ditawarkan oleh IoT. Kemampuan yang belum diterapkan seperti multi user monitoring, online recording, online analyzing, dan real time alerting. Terlebih penelitian tersebut belum mempertimbangkan optimasi terhadap waktu pengiriman dan pemrosesan data. Penelitian tersebut hanya berfokus pada bagaimana hasil baca sensor dapat dipantau secara realtime oleh orang lain di tempat lain.
 
-\subsection{Page Layout and Style}
-The manuscript must use a page size corresponding to A4. The margins must be set 3 cm for each top, bottom, left and right margins. The manuscript also must be in one column format. All paragraphs must be indented. All paragraphs must be justified, i.e. both left-justified and right- justified.
+Pada paper ini kami merancang sebuah arsitektur IoT yang menerapkan deteksi aritmia pada \textit{cloud}. Deteksi aritmia yang diterapkan merupakan usulan aturan klasifikasi oleh Tsipuras et al \cite{tsipouras} yang menggunakan fitur R pada ECG. Untuk mendeteksi fitur R, diterapkan modifikasi terhadap algoritma usulan Pan-Tompkins \cite{pantom}. Modifikasi yang dilakukan ditujukan untuk mengurangi waktu eksekusi yang diperlukan algoritma sehingga \textit{cloud} dapat melayani lebih banyak \textit{sensor}.
 
-Times New Roman or Times font should be used for the manuscript. Font size 10 is used in general, except for title (24), author information (11), abstract (9), and caption for figures and tables (8). More details on the font style used can be seen in Table \ref{tab:font-sizes}.
+\section{Solution Architectur Design}
+Sebuah sistem IoT umumnya memiliki 3 komponen yaitu Sensor, Server (selanjutnya disebut cloud) dan Actuator. Pada rancangan arsitektur di paper ini, tidak ada actuator yang bersifat sebagai pelaksana suatu perintah. Actuator yang diterapkan bersifat sebagai penerima pesan peringatan ketika terjadi aritmia dan modul untuk melakukan monitoring real time, selanjutnya disebut \textit{dashboard}.
 
-\begin{table}[!h]
-\centering
+Secara umum sistem bekerja dimulai dari sebuah sensor membaca sinyal jantung seorang pasien. Kemudian sensor akan terkoneksi ke cloud dan mengirimkan hasil bacanya secara periodik. Protokol komunikasi yang digunakan dalam sistem ialah MQTT. Cloud akan memroses sampel dan mengirimkan hasil filtering dan notifikasi terjadinya aritmia kepada dashboard. Dashboard akan berkomunikasi dengan cloud tentang sensor mana yang ingin dipantau. Gambaran ini dapat dilihat pada gambar \ref{fig:overall_diagram}.
 
-    \caption{Font Sizes for Manuscripts}   
-    \label{tab:font-sizes}
-    \begin{small}
-    \begin{tabular}{|c|l|l|l|}
-    \hline
-    {\bfseries Font} & \multicolumn{3} {c|} {\bfseries Appearance (in Times New Roman or Times} \\
-    \cline{2-4}
-    {\bfseries Size} & {\bfseries  Regular}         & {\bfseries Bold}     & {\bfseries Italic}           \\
-    \hline
-    8         & table caption (in	&		& reference item	\\
-              & Small Caps),		&		& (partial)		\\
-              &	figure caption,		&		&			\\
-              &	reference item		&		&			\\
-    \hline
-    9         & author email address,	& abstract body & abstract heading	\\
-              &	cell in a table 		&		&    (also in Bold)	\\
-    \hline
-    10        & level-1 heading  (in 	&		& level-2 heading,      \\
-              & Small Caps),		&		& level-3 heading,	\\
-              &	paragraph		&		& author affiliation	\\
-    \hline
-    11        &	author name		&		&			\\
-    \hline
-    24        & title			&		&			\\
-    \hline
-    \end{tabular}
-    \end{small} 
-\end{table}
-
-All title and author details must be in single-column format and must be centered. Every word in a title must be capitalized except for short minor
-words such as ``a'', ``an'', ``and'', ``as'', ``at'', ``by'', ``for'', ``from'',
-``if'', ``in'', ``into'', ``on'', ``or'', ``of'', ``the'', ``to'', ``with''.  To avoid confusion, the family name must be written as the last part of each author name (e.g. Mary J. Smith). Each affiliation must include, at the very least, the name of the company and the name of the country where the author is based (e.g. Telkom University, Indonesia).  
-
-For section headings, no more than 3 levels of headings should be used. All headings must be in 10pt font. Every word in a heading must be capitalized except for short minor words as listed above.
-
-\subsubsection{Level-1 Heading}
-A level-1 heading must be in Small Caps, centered and numbered using uppercase Roman numerals. Please be noted that "Acknowledgment" and "References" are level-1 headings which must not be numbered.
-
-\subsubsection{Level-2 Heading}
-A level-2 heading must be in Italic, left-justified and numbered using an uppercase alphabetic letter followed by a period. 
-
-\subsubsection{Level-3 Heading} 
-A level-3 heading must be indented, in Italic and numbered with an Arabic numeral followed by a right parenthesis. The level-3 heading must end with a colon. The body of the level-3 section immediately follows the level-3 heading in the same paragraph. For example, this paragraph begins with a level-3 heading.
-
-\subsection{Equations, Figures, and Tables}
-Number equations consecutively with equation numbers in parentheses flush with the right margin, as in (\ref{eq:satu}). Be sure that the symbols in your equation have been defined before the equation appears or immediately following. 
-
-\begin{equation}
-S(N,K) = \frac{\sum_{i=1}^n(w_i\times sim(f_N,f_K))}{\sum_{i=1}^nw_i}
-\label{eq:satu}
-\end{equation}
-
-
-Figures and tables must be centered in the column. Please check all figures in your paper both on screen and on a black-and-white hard copy. When you check your paper on a black-and-white hard copy, please ensure that: the colors used in each figure contrast well, the image used in each figure is clear, and all text labels in each figure are legible. Figures must be numbered using Arabic numerals. Figure captions must be in 8 pt regular font. Captions of a single line must be centered whereas multi-line captions must be justified. Captions with figure numbers must be placed after their associated figures. Example of a figure can be seen in Fig. \ref{fig:oneexample}.
-
-\begin{figure}[!t]
-\centering
-\includegraphics[width=2.5in, keepaspectratio=true]{fig_example.png}
-\caption{Example of a figure.}
-\label{fig:oneexample}
+\begin{figure}[htbp]
+\centerline{\includegraphics[scale=0.5]{images/overall.png}}
+\caption{Overall Solution Design Diagram.}
+\label{fig:overall_diagram}
 \end{figure}
 
-Tables must be numbered using uppercase Roman numerals. Table captions must be centered and in 8 pt regular font with Small Caps. Every word in a table caption must be capitalized except for short minor words as listed before. Captions with table numbers must be placed before their associated tables, as shown in \ref{tab:font-sizes}.
+\subsection{Sensor Module}
+Sensor Module dirancang hanya untuk membaca dan mangirimkan sinyal jantung, tidak ada pemrosesan berat pada modul. Hal ini ditujukan agar sensor dapat melakukan sampling dengan frekuensi yang tinggi. Selain itu, hal tersebut memungkinkan kedua jenis sensor (ECG atau PPG) dijadikan input pada modul. 
 
-\subsection{References}
-References are written using plain style as seen in the reference section in this example file. Only for example, citation in the manuscript should be written like this \cite{kopka1999guide} or for many citations can be written as \cite{lamport1994latex,swope1982computer,huo2007short}. In this file, references is organized using bibtex. You can see the bibtex file in myreference.bib including some bibtex style examples can be used.
+Sensor yang dirancang melakukan \textit{sampling} pada 200Hz atau 5ms/sampel. Frekuensi sampel yang tinggi ini membutuhkan protokol komunikasi yang cepat sehingga sampel tidak memenuhi buffer yang disediakan. Oleh karena itu, MQTT dipilih sebagai protokol komunikasi pada arsitektur yang dirancang. Setiap pesan dikirim menggunakan skema fire-and-forget pada MQTT (MQTT-QOS 0). Namun, karena tidak ada jaminan sampel sampia pada cloud perlu dilakukan penanganan data hilang. Hal ini dilakukan dengan memberikan index pada setiap sampel yang dikirim. Index ini akan direset setiap 1000 sampel untuk meminimalkan penggunaan memori pada modul dan menekan ukuran paket yang dikirim.
 
+\subsection{Cloud Module}
+Semua pemrosesan dilakukan di \textit{cloud/server}. Cloud bekerja dengan membagi pekerjaan kepada unit unit proses. Sebuah unit proses secara khusus menangani sebuah ID sensor. Sistem membuat unit proses ketika sebuah ID sensor baru saja terhubung dan menutupnya ketika ID sensor tersebut berhenti terhubung. 
 
-\section{Literature Review}
-The aim of a literature review is to show the readers that authors have read, and have a good grasp of, the main published work concerning a particular topic or question in the field. It is very important to note that the review should not be simply a description of what others have published in the form of a set of summaries, but should take the form of a critical discussion, showing insight and an awareness of differing arguments, theories and approaches. It should be a synthesis and analysis of the relevant published work, linked at all times to your own purpose and rationale.
+Sebuah unit proses akan memproses sampel berdasarkan index yang menyertai sampel tersebut. Ketika terdeteksi index yang hilang maka akan dilakukan penanganan data yang hilang. Index hilang terjadi ketika ada lompatan index yang diterima, misalnya proses menunggu index nomor 5 tapi yang tiba index nomor 10. Penanganan data yang dilakukan ialah menghitung kemungkinan nilai yang hilang berdasarkan garis lurus dari nilai sampel terakhir yang diterima ke nilai sampel sebelumnya (persamaan \ref{eq:line}). Nilai sampel ini, baik yang asli ataupun hasil perkiraan akan disimpan dalam database pada server.
 
-\section{Research Method}
-The presentation of the experimental methods should be clear and complete in every detail facilitating reproducibility by other scientists.
+\begin{equation}
+y(n) = \dfrac{n (v_{2} - v_{1})}{d} + v_{1}
+\label{eq:line}
+\end{equation}
 
-\section{Results and Discussion}
-The presentation of results should be simple and straightforward. This section reports the most important findings, including results of statistical analysis as appropriate and comparisons to other research results. Results given in figures should not be repeated in tables. This is where Authors should explain in words what he/she/they discovered in the research. It should be clearly laid out and in a logical sequence. This section should be supported suitable references.
+$v_{1}$ adalah nilai terakhir yang diterima, $v_{2}$ adalah nilai terbaru yang diterima, $n$ adalah jarak dari index terakhir, $d$ adalah jarak index terbaru ke terakhir. $y$ adalah nilai index $n$ yang hilang
 
-\section{Conclusion}
-Summarize sentences the primary outcomes of the study in a paragraph. Explain if the claims in this section supported by the results, and if they seem reasonable. Also, describe whether the result support or contradict previous theories, and explain how the research has moved the body of scientific knowledge forward. 
+Sampel kemudian diproses untuk dilakukan filtering, r-peak detection, dan aritmia classification. Sampel yang telah difilter akan digunakan sebagai visualisasi di dashboard. Karena frekuensi sampel yang tinggi maka sampel yang telah di filter perlu dilakukan downsample untuk bisa divisualisasikan. Nilai frekuensi downsampel yang dipilih ialah 20Hz (20 FPS) agar lebih banyak device yang mampu membuka dashboard.
 
-% use section* for acknowledgment
-\section*{Acknowledgment}
-The authors would like to thank...
+\subsection{Dashboard Module}
+Dashboard berfungsi sebagai penerima pesan peringatan dan modul pemantauan. Dengan menerapkan MQTT pada rancangan arsitektur, maka hubungan antara modul sensor-cloud-dashboard dapat digambarkan sebagai model subscriber dan publisher. Hal ini memungkinkan banyak dashboard untuk subscribe kepada ID sensor tertentu. Sekaligus memungkinkan dikirimnya \textit{push notification} kepada semua dashboard tersebut ketika ID yang dipantaunya mengalami serangan aritmia. Dashboard module dapat berupa ponsel android maupun halaman web.
+\section{Arrhyhtmia Detector}
+Telah banyak penelitian dilakukan untuk mengklasifikasikan aritmia berdasarkan sinyal ECG. Terdapat metode klasifikasi yang memanfaatkan metode kecerdasan buatan seperti \textit{support vector machine} (SVM) \cite{aritmia_svm} dan \textit{Artificial Neural Network} (ANN) \cite{aritmia_ann}, ada pula yang memanfaatkan aturan yang dibuat oleh dokter ahli jantung \cite{tsipouras}. Pada arsitektur yang dirancang diterapkan klasifikasi yang memanfaatkan aturan yang dibuat oleh ahli jantung. Aturan ini pertama kali diusulkan oleh Tsipouras et al, pada percobaan mereka menghasilkan akurasi yang cukup tinggi dibandingkan dengan algoritma yang lebih kompleks \cite{tsipouras}.
 
-%Use following code if you use bibtex
+Algoritma Arrhyhtmia Detector berjalan pada server (lihat gambar \ref{fig:overall_diagram}, diberi warna abu). Arrhyhtmia detector terbagi menjadi 2 tahap yaitu R-Peak detection dan Arrhyhtmia detection. R peak detection bertujuan untuk menemukan gelombang R pada sinyal ECG. Lalu R peak ini akan menjadi inputan pada Arrhyhtmia detection.
 
-\bibliographystyle{plain}
-\bibliography{References}{}
+\subsection{R Peak Detection}
+Deteksi puncak R dilakukan dengan memanfaatkan metode yang diajukan oleh Pan-Tomkins. Metode PanTomkins yang diterapkan dimulai dari Band Pass filtering, Derived filter, Squaring, dan Moving Window Integrator \cite{pantom}. Tahapan tersebut dilakukan untuk melakukan preprocessing terhadap sinyal jantung yang masuk (gambar \ref{fig:preprocessing}). Setelah itu PanTompkins menerapkan processing berupa adaptive thresholding terhadap sebuah window sinyal yang berukuran kecil (0.3s) \cite{pantom}. Pada window tersebut, akan dicari peak yang melewati threshold yang telah ditentukan, kemudian nilai peak akan menjadi input untuk  mengupdate nilai threshold. Ketika sekian waktu terlampaui tanpa ditemukannya peak maka harus dilakukan search back hingga posisi R terakhir yang ditemukan (gambar \ref{fig:processing_ori}).
 
+\begin{figure}[htbp]
+\centerline{\includegraphics[scale=0.4]{images/preprocessing.png}}
+\caption{Preprocessing: Filtering}
+\label{fig:preprocessing}
+\end{figure}
 
-% Without bibtex
-%\begin{thebibliography}{1}
-%
-%\bibitem{one}
-%H.~Kopka and P.~W. Daly, \emph{A Guide to \LaTeX}, 3rd~ed.\hskip 1em plus
-%  0.5em minus 0.4em\relax Harlow, England: Addison-Wesley, 1999.
-%\bibitem{books1}
-%J. K. Author, "Title of chapter in the book," in \emph{Title of His Published Book}, xth ed. City of Publisher, Country if not
-%\bibitem{books2}
-%USA: Abbrev. of Publisher, year, ch. x, sec. x, pp. xxx-xxx.
-%\bibitem{onlinejournal}
-%Author. (year, month). Title. \emph{Journal. volume (issue)}, pages. Available: site/path/file 
-%\bibitem{proceeding}
-%J. K. Author, "Title of paper," in \emph{Abbreviated Name of Conf.}, City of Conf., Abbrev. State (if given), year, pp. xxxxxx.
-%\bibitem{dissertation}
-%J. K. Author, "Title of dissertation," Ph.D. dissertation, Abbrev. Dept., Abbrev. Univ., City of Univ., Abbrev. State, year.
-%
-%\end{thebibliography}
+\begin{figure}[htbp]
+\centerline{\includegraphics[scale=0.35]{images/processing_ori.png}}
+\caption{Processing: Original R Peak Detection}
+\label{fig:processing_ori}
+\end{figure}
 
+Penulis melihat algoritma ini dapat dioptimasi sehingga dapat bekerja lebih cepat. Optimasi dilakukan dengan mempebesar window sehingga mengurangi jumlah eksekusi yang perlu dilakukan dalam waktu yang sama, membuat threshold berdasarkan nilai rata-rata window tersebut, menghapus false beat dengan menolak R yang terlalu dekat berdasarkan rata rata jarak R (gambar \ref{fig:processing_modif}). Pelebaran window berakibat pada meningkatnya delay atas munculnya hasil deteksi sejak diterimanya sampel namun dapat meningkatkan akurasi deteksi.
+
+\begin{figure}[htbp]
+\centerline{\includegraphics[scale=0.45]{images/processing_modif.png}}
+\caption{Processing: Original R Peak Detection}
+\label{fig:processing_modif}
+\end{figure}
+
+Nilai $\alpha$, $\beta$ serta lebar window yang diterapkan pada algoritma modifikasi didapatkan melalui hasil percobaan.
+
+\subsection{Arrhyhtmia Detection}
+Tsipouras et al. mengusulkan algoritma deteksi setelah melakukan percobaan bersama dokter spesialis jantung \cite{tsipouras}. Jenis aritmia yang dapat dideteksinya dibagi menjadi 4 jenis detak aritmia dan 7 jenis ritme aritmia. Namun untuk rancangan pada paper ini artimia hanya yang dapat dideteksi hanyalah jenis aritmia detak dan dikelompokkan kedalam 3 kategori. Kategori yang dipilih ialah 1) Normal, 2) Premature Contraction, dan 3) Ventricular Flutter. Secara detil pengelompokan ini dapat dilihat pada tabel \ref{table:beat_classification}.
+
+\begin{table}[htbp]
+	\begin{center}
+	\caption{Arrhyhtmia Beat Classification}
+	\includegraphics[scale=0.35]{images/class.png}	
+	\label{table:beat_classification}
+	\end{center}
+\end{table}
+
+Algoritma Tsipouras melakukan klasifikasi berdasarkan sebuah window RR interval yaitu $RR1_i$, $RR2_i$, dan $RR3_i$ yang kemudian seterusnya bergeser satu beat. Tiap beat mulanya dikategorikan sebagai kelas 1 dan kemudian mendapatkan kategori baru sesuai aturan yang telah ditetapkan (gambar \ref{fig:flowchart_aritmia}).
+
+Rule 1. VF: Dimulai ketika $RR1_i > 1.8RR2_i$ dan durasi $RR2_i$ lebih kecil daripada 0.6 s. Maka $RR2_i$ dianggap sebagai awal mula terjandinya VF dan window berikutnya akan dites dengan kedua kondisi berikut:
+
+\begin{enumerate}
+	\item durasi setiap RR interval dalam satu window lebih kecil dari 0.7s
+	\item jumlah durasi setiap RR interval dalam satu window lebih kecil dari 1.7s
+\end{enumerate}
+
+Jika salah satu kondisi tambahan pada rule 1 terpenuhi minimal 4 window berurutan maka RR2 pada tiap window tersebut diklasifikasikan sebagai beat kategori 3. Jika tidak algoritma berlanjut dan window kembali ke posisi awal ditemukannya VF.
+
+Rule 2. PVC: Detak dikategorikan sebagai PVC jika salah satu kondisi berikut terpenuhi:
+
+\begin{enumerate}
+	\item $RR1_i > 1.15RR2_i$ dan $RR3_i > 1.15RR2_i$
+	\item $|RR1_i - RR2_i| < 0.3s$ dan $RR1_i < 0.8s$ dan $RR2_i < 0.8s$ dan $1.2(RR1_i + RR2_i)/2 < RR3_i$
+	\item $|RR2_i$ - $RR3_i| < 0.3s$ dan $RR2_i < 0.8s$ dan $RR3_i < 0.8s$ dan $1.2(RR2_i + RR3_i)/2 < RR1_i$
+\end{enumerate}
+
+\begin{figure}[htbp]
+\centerline{\includegraphics[scale=0.55]{images/flowchart_aritmia.png}}
+\caption{Flowchart of Beat Aritmia Classification}
+\label{fig:flowchart_aritmia}
+\end{figure}
+
+\section{Performance Test}
+Untuk menguji performa rancangan aristektur, rancangan arsiterkur perlu untuk diterapkan. Modul sensor diterapkan menjadi bentuk gelang tangan yang ditanamkan sensor berjenis PPG. ESP-12E lalu dipilih sebagai \textit{controller}-nya. ESP-12E dipilih karena bentuknya yang kecil dan spesifikasinya yang telah memiliki modul Wi-Fi. PPG dipilih hanya untuk mensimulasikan transmisi sinyal jantung, akurasi deteksi akan diukur menggunakan dataset ECG yang telah disedikan oleh MIT-BIH \cite{mit_bih_paper, physionet}. Modul cloud diterapkan secara lokal pada komputer ASUS K432SD@2.1GHz-RAM 6GB. Cloud akan diuji menggunakan 2 buah bahasa pemograman yang populer dalam membangun sistem IoT, yaitu Node.Js dan Python yang keduanya terhubung dengan database No-SQL MongoDb. Dashboard modul diterapkan menjadi sebuah halaman web dan menjadi sebuah aplikasi pada ponsel android.
+
+Pengujian dilakukan oleh satu orang yang mengenakan modul sensor dan bergerak secara bebas dalam daerah yang tercakup WiFi. Modul sensor, Router WiFi dan Cloud modul masih berada dalam satu wilayah yang sama sehingga diasumsikan tidak ada delay akibat proses routing. Sehingga ketika terdeteksi artimia, dashboard modul dapat segera menerima push notifikasi dari MQTT. Namun karena keterbatasan maksimum FPS yang dapat dirender oleh monitor, sampel 200Hz harus di downsample hingga 20Hz pada dashboard.
+
+\subsection{Execution Time}
+Setalah diuji, waktu eksekusi ditemukan cukup kecil. Waktu eksekusi mencakup diprosesnya sampel hingga menghasilkan deteksi aritmia (tahapan filter, save, detect). Waktu eksekusi tercatat sebesar 0.00749 ms/sampel dengan menggunakan backend Node.JS dan 0.00991 ms/sampel dengan menggunakan backend Python. Ditemukan untuk rancangan arsitektur ini penggunaan nodejs lebih baik karena dengan alogritma dan spesifikasi server yang sama node.js dapat bekerja lebih cepat hingga 13\% daripada python.
+
+Modifikasi algoritma deteksi R juga menghasilkan performa yang diharapkan ($\alpha = 1.1; \beta = 0.8; window = 6.5s$). Modifikasi algoritma menghasilkan waktu eksekusi hingga 30\% lebih cepat dari algoritma asli PanTompkin (gambar \ref{fig:exec_time}). 
+
+\begin{figure}[htbp]
+\centerline{\includegraphics[scale=0.41]{images/beat_exec.png}}
+\caption{Execution time comparison}
+\label{fig:exec_time}
+\end{figure}
+
+\subsection{Detection}
+Selain menghasilkan waktu eksekusi yang lebih cepat, modifikasi terhadap algoritma pantomkin juga memiliki tingkat akurasi yang menyamai algoritma pantomkin yang asli (gambar \ref{fig:beat_perform}). Dengan menerapkan algoritma deteksi aritmia usulan Tsipouras, sistem berhasil mendeteksi 3 kelas detak dengan performa akurasi yang cukup baik yaitu 93.11\% (gambar \ref{fig:aritmia_acc}).
+
+\begin{figure}[htbp]
+\centerline{\includegraphics[scale=0.41]{images/beat_perform.png}}
+\caption{Execution time comparison}
+\label{fig:beat_perform}
+\end{figure}
+
+\begin{figure}[htbp]
+\centerline{\includegraphics[scale=0.41]{images/aritmia_acc.png}}
+\caption{Execution time comparison}
+\label{fig:aritmia_acc}
+\end{figure}
+
+\section{Result and Conclusion}
+Monitoring aritmia jantung secara realtime menggunakan IoT sangat mungkin dilakukan, terlihat dari hasil akurasi deteksi yang mencapai 93.11\%. Masalah utama berada pada optimasi resource yang terlibat, sehingga memungkinkan semakin banyak sensor dan dashboard yang dapat terhubung. Dimulai dari pemilihan bahasa server, database, hingga penerapan algoritma. Dengan menerapkan optimasi pada algoritma pantomkins server dapat menangani hingga 1.4 kali banyak sensor (waktu eksekusi berkurang hingga 30\%). Penerapan algoritma yang lebih akurat dan lebih banyak kelas yang dapat dideteksi dapat menjadi penelitian lanjutan yang menarik. \cite{huo2007short}
+
+\printbibliography
 
 \end{document}
 
