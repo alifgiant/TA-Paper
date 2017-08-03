@@ -12,7 +12,7 @@
     
 \begin{document}
 
-\title{IoT on Heart Arrhyhtmia Real Time Monitoring\\
+\title{IoT on Heart Arrhythmia Real Time Monitoring\\
 %{\footnotesize \textsuperscript{*}Note: Sub-titles are not captured in Xplore and should not be used}
 %\thanks{Identify applicable funding agency here. If none, delete this.}
 }
@@ -38,7 +38,7 @@ Monitoring jantung mendapatkan perhatian lebih belakangan ini. Hal ini terlihat 
 
 \bigskip
 \begin{IEEEkeywords}
-IoT, heart monitoring, arrhyhtmia
+IoT, heart monitoring, Arrhythmia
 \end{IEEEkeywords}
 
 \section{Introduction}
@@ -81,10 +81,10 @@ Sampel kemudian diproses untuk dilakukan filtering, r-peak detection, dan aritmi
 \subsection{Dashboard Module}
 Dashboard berfungsi sebagai penerima pesan peringatan dan modul pemantauan. Dengan menerapkan MQTT pada rancangan arsitektur, maka hubungan antara modul sensor-cloud-dashboard dapat digambarkan sebagai model subscriber dan publisher. Hal ini memungkinkan banyak dashboard untuk subscribe kepada ID sensor tertentu. Sekaligus memungkinkan dikirimnya \textit{push notification} kepada semua dashboard tersebut ketika ID yang dipantaunya mengalami serangan aritmia. Dashboard module dapat berupa ponsel android maupun halaman web.
 
-\section{Arrhyhtmia Detector}
+\section{Arrhythmia Detector}
 Telah banyak penelitian dilakukan untuk mengklasifikasikan aritmia berdasarkan sinyal ECG. Terdapat metode klasifikasi yang memanfaatkan metode kecerdasan buatan seperti \textit{support vector machine} (SVM) \cite{aritmia_svm} dan \textit{Artificial Neural Network} (ANN) \cite{aritmia_ann}, ada pula yang memanfaatkan aturan yang dibuat oleh dokter ahli jantung \cite{tsipouras}. Pada arsitektur yang dirancang diterapkan klasifikasi yang memanfaatkan aturan yang dibuat oleh ahli jantung. Aturan ini pertama kali diusulkan oleh Tsipouras et al, pada percobaan mereka menghasilkan akurasi yang cukup tinggi dibandingkan dengan algoritma yang lebih kompleks \cite{tsipouras}.
 
-Algoritma Arrhyhtmia Detector berjalan pada server (lihat gambar \ref{fig:overall_diagram}, diberi warna abu). Arrhyhtmia detector terbagi menjadi 2 tahap yaitu R-Peak detection dan Arrhyhtmia detection. R peak detection bertujuan untuk menemukan gelombang R pada sinyal ECG. Lalu R peak ini akan menjadi inputan pada Arrhyhtmia detection.
+Algoritma Arrhythmia Detector berjalan pada server (lihat gambar \ref{fig:overall_diagram}, diberi warna abu). Arrhythmia detector terbagi menjadi 2 tahap yaitu R-Peak detection dan Arrhythmia detection. R peak detection bertujuan untuk menemukan gelombang R pada sinyal ECG. Lalu R peak ini akan menjadi inputan pada Arrhythmia detection.
 
 \subsection{R Peak Detection}
 Deteksi puncak R dilakukan dengan memanfaatkan metode yang diajukan oleh Pan-Tomkins. Metode PanTomkins yang diterapkan dimulai dari Band Pass filtering, Derived filter, Squaring, dan Moving Window Integrator \cite{pantom}. Tahapan tersebut dilakukan untuk melakukan preprocessing terhadap sinyal jantung yang masuk (gambar \ref{fig:preprocessing}). Setelah itu PanTompkins menerapkan processing berupa adaptive thresholding terhadap sebuah window sinyal yang berukuran kecil (0.3s) \cite{pantom}. Pada window tersebut, akan dicari peak yang melewati threshold yang telah ditentukan, kemudian nilai peak akan menjadi input untuk  mengupdate nilai threshold. Ketika sekian waktu terlampaui tanpa ditemukannya peak maka harus dilakukan search back hingga posisi R terakhir yang ditemukan (gambar \ref{fig:processing_ori}).
@@ -111,12 +111,12 @@ Penulis melihat algoritma ini dapat dioptimasi sehingga dapat bekerja lebih cepa
 
 Nilai $\alpha$, $\beta$ serta lebar window yang diterapkan pada algoritma modifikasi didapatkan melalui hasil percobaan.
 
-\subsection{Arrhyhtmia Detection}
+\subsection{Arrhythmia Detection}
 Tsipouras et al. mengusulkan algoritma deteksi setelah melakukan percobaan bersama dokter spesialis jantung \cite{tsipouras}. Jenis aritmia yang dapat dideteksinya dibagi menjadi 4 jenis detak aritmia dan 7 jenis ritme aritmia. Namun untuk rancangan pada paper ini artimia hanya yang dapat dideteksi hanyalah jenis aritmia detak dan dikelompokkan kedalam 3 kategori. Kategori yang dipilih ialah 1) Normal, 2) Premature Contraction, dan 3) Ventricular Flutter. Secara detil pengelompokan ini dapat dilihat pada tabel \ref{table:beat_classification}.
 
 \begin{table}[htbp]
 	\begin{center}
-	\caption{Arrhyhtmia Beat Classification}
+	\caption{Arrhythmia Beat Classification}
 	\includegraphics[scale=0.35]{images/class.png}	
 	\label{table:beat_classification}
 	\end{center}
