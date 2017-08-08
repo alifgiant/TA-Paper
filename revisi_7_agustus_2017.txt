@@ -1,0 +1,23 @@
+secara umum sistem bla blaa ---> dibuat jadi poin
+
+penulis -> penelitian / riset ini
+
+3.5.3 jelaskan flownya detil
+
+algoritma di 3.5.3 jelaskan digunakan dimana
+
+3.5.5 penjelasan buat flow
+
+3.13 jelaskan lagi gambarnya
+
+persamaan 3.7 berikan refer arti variabel
+
+tabel 3.2 jadikan bahasa indonesia tabelnya, tabel yg rekap aritmia singgung.
+
+skenario akurasi, berikan nomor tabel ke confussion matrix
+
+pembahasan delay, siapa yg jelaskan perubahan delay krn jaringan.
+
+baca grafik2 bab 4
+
+bahasa indonesiakan semua grafik dan tabel

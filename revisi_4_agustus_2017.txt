@@ -1,0 +1,20 @@
+[DONE] - receptor 	-> DAU (Data Acquisition Unit)
+[DONE] - server 		-> SPU (Server Processing Unit)
+[DONE] - viewer		-> CMU (Client Monitoring Unit)
+[DONE] - Data Completer -> Data Correction
+
+masing2 percobaan diulang 10x, dan dihitung rata-rata
+
+[SKIP] - coba LaTex font
+
+[DONE] - experiment -> scenario
+
+[DONE] - masukkan hasil scenario ke lampiran
+
+[DONE] - alpha dan beta masukkan
+
+[DONE] - window duration (detik)
+
+[DONE] - tabel original ditaruh sebelum modifikasi
+
+[DONE] - jelaskan gambarnya

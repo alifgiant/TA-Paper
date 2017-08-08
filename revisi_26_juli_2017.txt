@@ -1,0 +1,54 @@
+----------------------ALIF-----------------------
+[DONE] - namun produk dan penelitian yg ada belum mampu bla bla dan tidak dapat bla bla
+
+[DONE] - pasien malah memerlukan pengawasan terus meneru
+
+[DONE] - akibatnya dokter jantung sering kewalahan dalam memberikan pelayanan yang baik kepada pasiennya.
+
+[DONE] - Algoritma yang diterapkan pada arsitektur yang diusulkan ialah modifikasi algoritma usulan 
+
+[DONE] - Sistem yang Ada dan Riset Terkait >> Penelitian terkait monitoring aritmia
+
+[DONE] - Sebelum berdiskusi lebih jauh tentang riset terkait aritmia ada baiknya mereview bebrapa produk terkait monitoring jantung yang ada dipasaran.
+
+[DONE] - metodologi diagram dulu, gak usah warna flowchart
+
+[DONE] - sitasi rancangan sensor
+
+[DONE] - kasih poin a, b, c di semua subsubsection
+
+[DONE] - sub 3.4 >> kasi kalimat penjelas bahwa merupakan penjelasan dari flowchart
+
+[DONE] - Algoritma Deteksi yang digunakan
+
+[DONE] - Rancangan proses Pemantauan
+
+[DONE] - Rancangan proses deteksi
+
+perkuat alasan memilih filter
+
+[DONE] - dijudul MWI, kasih kepanjangan
+
+[DONE] - hapus kata rancangan
+
+[DONE] - deteksi sinyal R, kasih ref ke bab 2.
+
+[DONE] - kasih flowchart pembanding modifikasi.. algoritma tetap
+
+[DONE] - Visualisasi Gelombang listrik jantung
+
+Integrasi algoritma dengan perangkat keras, jelaskan lagi chartnya
+
+[DONE] - ganti viewer jadi dashboard
+
+[DONE] - jumlah fitur sistem
+
+[DONE] - konsistensi bahasa di 4.1
+
+[DONE] - rata2 delay perdetik dan execution time, berapa kali diulang.
+
+[DONE] - cek istilah grafik halus, FPS hapus
+
+[DONE] - kesimpulan adalah statement semua objektif tercapai apa tidak.
+
+[DONE] - "Arsitektur telah berhasil didesai..., parameter dapat dilihat bla bla"
