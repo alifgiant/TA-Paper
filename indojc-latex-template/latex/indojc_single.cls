@@ -2,6 +2,7 @@
 
 \NeedsTeXFormat{LaTeX2e}
 
+
 % TSoCtran.cls version numbers, provided as of V1.3
 % These values serve as a way a .tex file can
 % determine if the new features are provided.
@@ -3030,7 +3031,7 @@ between column types.}%
 %% set \leftmark and \rightmark or use \MakeLowercase{et. al.} within the
 %% arguments to \markboth.
 %% V1.7b add \protect to work with Babel
-\def\markboth#1#2{\def\leftmark{\@TSoCcompsoconly{\sffamily}\textsc{\Author \MakeLowercase{\textit{ et al.} }: \Title} #1}%
+\def\markboth#1#2{\def\leftmark{\@TSoCcompsoconly{\sffamily}\textsc{\Author \MakeLowercase{\textit{} }: \Title} #1}%
 \def\leftmark{\@TSoCcompsoconly{\sffamily}\textsc{Ind. Journal on Computing~Vol.~XX, No.~XX, \MONTH~\the\year #2}}}
 \def\footernote#1{\markboth{#1}{#1}}
 
@@ -4795,7 +4796,7 @@ Use \@TSoCbackslash #2 instead.}}
   }
 \ExplSyntaxOff
 
-\RequirePackage[margin=3cm]{geometry}
+\RequirePackage[margin=3cm, top=4.1cm, headheight=1.1cm]{geometry}
 \RequirePackage{graphicx}
 \RequirePackage{fancyhdr}
 \fancypagestyle{firstpage}{%
@@ -4807,18 +4808,20 @@ Use \@TSoCbackslash #2 instead.}}
 {
 \fancyhead[R]{\footnotesize{\sc Ind. Journal on Computing~ Vol.~XX, No.~XX, \MONTH~\the\year\\pp. xx-xx. doi:xxx}}   
 \fancyhead[L]{\sc{OPEN ACCESS}\\
-\includegraphics[width=6 cm]{logo.png}\\\footnotesize{\sc{ISSN xxxx-xxxx}\\
+\includegraphics[width=2.75 cm]{logo.png}\\\footnotesize{\sc{ISSN xxxx-xxxx}\\
 \MakeLowercase{socj.telkomuniversity.ac.id/indojc}}
 }
 }
 \fancypagestyle{followingpage}{%
 \fancyhf{} % clear all six fields 
-\fancyhead[LE]{\footnotesize{\sc \Author \MakeLowercase{\textit{ et al.}}: \\ \Title ...}}
-\fancyhead[LO]{\footnotesize{\sc Ind. Journal on Computing~ Vol.~XX, No.~XX, \MONTH~\the\year}}
-\fancyhead[R]{\footnotesize{\sc \thepage}} \renewcommand{\headrulewidth}{0.7pt} \renewcommand{\footrulewidth}{0pt}
+\fancyhead[LE]{\footnotesize{\sc \Author \MakeLowercase{\textit{}}: \\ \Title ...}\\$~$}
+\fancyhead[LO]{%\footnotesize{\sc Ind. Journal on Computing~ Vol.~XX, No.~XX, \MONTH~\the\year}
+}
+\fancyhead[R]{%\footnotesize{\sc \thepage}
+} \renewcommand{\headrulewidth}{0.7pt} \renewcommand{\footrulewidth}{0pt}
   }
 \pagestyle{followingpage}
-\AtBeginDocument{\thispagestyle{firststyle}\geometry{headheight = 0.55in}
+\AtBeginDocument{\thispagestyle{empty}\geometry{headheight = 0.55in}
 }
 \renewcommand{\headrulewidth}{0pt}
 
